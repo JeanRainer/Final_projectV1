@@ -8,43 +8,89 @@
 </head>
 
 <body>
-    <div class="top-row">
-        <header>
-            <div class="brand">
-                <a href="index.html">
+    <header>
+        <div class="brand">
+            <a href="index.html"">
                     <img src="images/tea_logo.png" alt="Brew Culture logo">
-                    <h1>Brew Culture</h1>
-                </a>
-            </div>
-        </header>
-    </div>
+                <h1>Brew Culture</h1>
+            </a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>  
+            <li class="dropdown">
+                <button class="dropbtn">Culture ▾</button>
+                <div class="dropdown-content">
+                    <a href="tea_regions.html">Regional Variations</a>
+                    <a href="tea_history.html">History</a>
+                </div>
+            </li>
+            <li><a href="brew.html">Brewing Guide</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+    </nav>
 
-    <div class="nav-container">
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html" class="nav-link">Home</a></li>   
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn">Culture
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="tea_regions.html">Regional Variations</a>
-                            <a href="tea_history.html">History</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="brew.html" class="nav-link">Brewing Guide</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-            </ul>
-        </nav>
-    </div>
-<!--profile photo
-then have 3 accordion menu about the site and vision-->
+<main>
+  <section class="about-header">
+    <img src="images/profile_photo.png" alt="Author photo" class="profile-img">
+    <h2>About the Author</h2>
+    <p class="tagline">Exploring tea as culture, ritual, and quiet philosophy.</p>
+  </section>
 
+  <section class="about-body">
+    <p>
+      Brew Culture is a personal project dedicated to understanding tea beyond
+      taste — as a reflection of history, geography, and human intention.
+      From Chinese gongfu traditions to modern interpretations, this site
+      explores how tea connects people across time and place.
+    </p>
+  </section>
+
+  <section class="about-sections">
+    <details>
+      <summary>Purpose of the Site</summary>
+      <p>
+        This site exists to document and present tea culture in a way that is
+        accessible yet respectful to its origins. It focuses on clarity,
+        simplicity, and cultural depth rather than commercial trends.
+      </p>
+    </details>
+
+    <details>
+      <summary>Design Philosophy</summary>
+      <p>
+        The visual design is inspired by traditional East Asian aesthetics—
+        soft tones, paper-like textures, and minimal structure. The goal is to
+        create a calm reading experience, similar to observing a painting or
+        preparing tea.
+      </p>
+    </details>
+
+    <details>
+      <summary>Future Direction</summary>
+      <p>
+        Brew Culture aims to expand into regional studies, detailed brewing
+        techniques, and cross-cultural comparisons, building a quiet archive
+        of tea knowledge over time.
+      </p>
+    </details>
+  </section>
+</main>
 
     <footer>
-        <p>&copy; 2026 Brew Culture. All rights reserved. Content may include AI-generated guidance.</p>
+        <div class = "socials">
+            <p>Socials for view:</p>
+            <a href="index.html">
+                <img src="images/tea_logo.png" alt="Facebook icon" class="social-icon">
+            </a>
+            <a href="index.html">
+                <img src="images/tea_logo.png" alt="GitHub icon" class="social-icon">
+            </a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Brew Culture.</p>
+        </div>
     </footer>
 </body>
 </html>
