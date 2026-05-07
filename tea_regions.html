@@ -5,6 +5,14 @@
     <link rel = "stylesheet" href = "css/style.css">
     <title>Brew Culture: Guide to Tea</title>
     <link rel="icon" type="image/x-icon" href="images/tea_logo.png">
+
+    <script src="script.js"></script>
+    <script src="https://cloudflare.com"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        imageMapResize();
+    });
+</script>
 </head>
 
 <body>
@@ -31,11 +39,32 @@
         </ul>
     </nav>
     <main>
-        <map>
-            <img scr=""> /*map the globe with legend*/
-        </map>
-    </main>
+<div class="globe-wrapper">
+  <img src="images/earth_map.jpg" alt="World Map" usemap="#globemap" class="globe-img" width="1024" height="512">
 
+<!--properly map, have hovering cards later-->
+<map name="globemap">
+  <!-- India: Centered on the sub-continent -->
+  <area shape="rect" coords="695,205,745,265" alt="India" 
+        onmouseover="showCard('India', 'Famous for Darjeeling and Assam teas.')" 
+        onmouseout="hideCard()" href="index.html">
+  
+  <!-- China: Covering the eastern tea regions -->
+  <area shape="rect" coords="765,145,860,235" alt="China" 
+        onmouseover="showCard('China', 'The origin of tea, known for Green and Oolong.')" 
+        onmouseout="hideCard()" href="index.html">
+  
+  <!-- Japan: Narrow box over the islands -->
+  <area shape="rect" coords="880,155,910,215" alt="Japan" 
+        onmouseover="showCard('Japan', 'Known for Matcha and Sencha.')" 
+        onmouseout="hideCard()" href="index.html">
+</map>
+
+</div>
+
+</script>
+    </main>
+ 
 
     <footer>
         <div class = "socials">
@@ -52,4 +81,9 @@
         </div>
     </footer>
 </body>
+
+<script src="imageMapResizer.min.js"></script>
+<script>
+    imageMapResize();
+</script>
 </html>

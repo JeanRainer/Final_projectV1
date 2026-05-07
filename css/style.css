@@ -201,10 +201,9 @@ display: flex;
 /* MAIN CONTENT */
 main {
     display: flex;
-    flex:1;
     flex-direction: column;
-    align-items:center;
-    text-align: safe center;
+    align-items:safe center;
+    text-align:center;
 
     background-color: #F5EBD7;
     color: #2F2A24;
@@ -336,6 +335,7 @@ footer .socials a:hover img {
 }
 
 
+
 main {
     max-width: 900px;
     margin: 20px auto;
@@ -343,7 +343,7 @@ main {
 
 /* Header */
 .about-header {
-    text-align: center;
+    text-align:center;
     margin-bottom: 20px;
 }
 
@@ -357,15 +357,35 @@ main {
     border: 2px solid rgba(166,124,82,0.4);
 }
 .section-img{
-        width: auto;
     height: 360px;
+        width:  100%;
+    max-width:100%;
     object-fit: cover;
     margin-bottom: 10px;
 
     border: 2px solid rgba(166,124,82,0.4);
 }
+@media (max-width: 480px) {
+    .section-img {
+        height: 250px; /* Shorter image for smaller screens */
+    }
+}
+/* Tablet: 2 columns */
+@media (min-width: 600px) {
+    .card-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1000px) {
+    .card-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
 .tagline {
+    text-align: center;
     font-style: italic;
     opacity: 0.8;
 }
@@ -404,4 +424,60 @@ details[open] summary {
 }
 details[open] p {
     color: #2F4F3E;
+}
+
+.grid-container {
+  display: grid;
+
+  /* Adjust '300px' to change the minimum width of each card */
+  grid-template-columns: repeat(auto-fit, 300px); 
+  gap: 20px;
+  
+  /* Centers the grid itself and the items inside it */
+  justify-content: center; 
+}
+
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Keeps the image corners rounded */
+  transition: transform 0.2s;
+      background: #F5EBD7;
+    color: #2F4F3E;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Prevents image distortion */
+}
+
+.card-content {
+
+  padding: 15px;
+}
+
+.globe-wrapper {
+  position: relative; /* Essential for positioning the card */
+  display: inline-block;
+}
+
+.globe-img {
+    display: block;
+    width: 100%;
+    max-width: 1024px; /* Matches the map coordinate base */
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+area {
+    display: block;
+    outline: 3px solid #A67C52; /* This shows you exactly where to click */
+    cursor: pointer;
 }
