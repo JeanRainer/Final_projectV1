@@ -39,30 +39,49 @@
         </ul>
     </nav>
     <main>
+        <h2>Variations</h2>
+    <details>
+        <summary>See a country's choice of drink!</summary>
+        <nav class = "breadcrumbs">
+            <ul>
+                <li><a href="tea_China.html">China</a></li>
+                <li><a href="index.html">India</a></li>
+                <li><a href="index.html">Japan</a></li>
+            </ul>
+        </nav>
+        </details>
+
+  <div id="hover-card" class="info-card">
+    <h4 id="card-title"></h4>
+    <p id="card-text"></p>
+  </div>
+
+
 <div class="globe-wrapper">
   <img src="images/earth_map.jpg" alt="World Map" usemap="#globemap" class="globe-img" width="1024" height="512">
 
 <!--properly map, have hovering cards later-->
 <map name="globemap">
   <!-- India: Centered on the sub-continent -->
-  <area shape="rect" coords="695,205,745,265" alt="India" 
+  <area shape="rect" coords= " 561, 102, 622, 178" alt="India" 
         onmouseover="showCard('India', 'Famous for Darjeeling and Assam teas.')" 
         onmouseout="hideCard()" href="index.html">
   
   <!-- China: Covering the eastern tea regions -->
-  <area shape="rect" coords="765,145,860,235" alt="China" 
-        onmouseover="showCard('China', 'The origin of tea, known for Green and Oolong.')" 
-        onmouseout="hideCard()" href="index.html">
+  <area shape="rect" coords=" 623, 92, 688, 138 " alt="China" 
+          onmouseover="showCard(event, 'China', 'The origin of tea, known for Green and Oolong.')" 
+          onmouseout="hideCard()" href="tea_China.html">
   
   <!-- Japan: Narrow box over the islands -->
-  <area shape="rect" coords="880,155,910,215" alt="Japan" 
+  <area shape="rect" coords="696, 69, 726, 111 " alt="Japan" 
         onmouseover="showCard('Japan', 'Known for Matcha and Sencha.')" 
         onmouseout="hideCard()" href="index.html">
 </map>
 
+
 </div>
 
-</script>
+
     </main>
  
 

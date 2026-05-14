@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Brew Culture: Guide to Tea</title>
     <link rel="icon" type="image/x-icon" href="images/tea_logo.png">
+    
 
 </head>
 
@@ -16,6 +17,7 @@
                 <h1>Brew Culture</h1>
             </a>
         </div>
+                
     </header>
     <nav>
         <ul>
@@ -33,8 +35,72 @@
     </nav>
 
 <main>
+    <!-- PAGE 1: CHINA -->
+    <div id="step1" class="page-content active-page">
+        <h2>China</h2>
+        <div class="content">
+            <figure class="image-wrapper-simple">
+                <img src="images/teaChinese.jpg" alt="Chinese tea ceremony" class="content-image">
+                <figcaption class="photo-credit-simple">Credit: <a href="#" target="_blank">gettyimages|puttapon</a></figcaption>
+            </figure>
+            <p>China is the birthplace of tea, and its tea culture is rich and diverse...</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INDIA (Add your next content here) -->
+    <div id="step2" class="page-content">
+        <h2>India</h2>
+        <div class="content">
+            <figure class="image-wrapper-simple">
+                <img src="images/teaIndia.jpg" alt="Indian tea culture" class="content-image">
+                <figcaption class="photo-credit-simple">Credit: <a href="#" target="_blank">Source</a></figcaption>
+            </figure>
+            <p>India is one of the largest tea producers in the world, famous for its robust Assam and fragrant Darjeeling black teas...</p>
+        </div>
+    </div>
+
+<!-- PAGE 3: JAPAN (With Short Video Layout) -->
+<div id="step3" class="page-content">
+    <h2>Japan</h2>
+    <div class="content">
+        <!-- Short Video Container instead of a standard image -->
+        <div class="video-wrapper">
+            <video class="content-video" autoplay loop muted playsinline>
+                <source src="videos/matcha_prep.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-credit">Credit: @brewculture</div>
+        </div>
+
+        <div class="text-block">
+            <p>Japan is world-renowned for its meticulous tea ceremonies and high-quality green teas like Matcha and Sencha. Unlike Chinese teas which are often pan-fired, Japanese green teas are typically steamed to preserve their vibrant green color, deep earthy flavor, and nutrient profile.</p>
+        </div>
+    </div>
+</div>
+
     
-    </main>
+
+    <!-- NEXT / PREVIOUS BUTTON CONTROLS -->
+    <div class="page-controls">
+        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous Step</button>
+        <button id="nextBtn" onclick="changePage(1)">Next Step</button>
+    </div>
+
+    <!-- Your existing collapsible menu -->
+    <section>
+        <details>
+            <summary>See other countries.</summary>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><span><a href="tea_China.html">China</a></span></li>
+                    <li><a href="index.html">India</a></li>
+                    <li><a href="index.html">Japan</a></li>
+                </ul>
+            </nav>
+        </details>
+    </section>
+</main>
+
         
 
     <footer>
@@ -51,5 +117,29 @@
             <p>&copy; 2026 Brew Culture.</p>
         </div>
     </footer>
+
+    <script>
+    // Track the array indices of your content blocks
+    // Add 'page-japan' to your existing script array
+const pages = ["step1", "step2", "step3"];
+
+    let currentPageIndex = 0;
+
+    function changePage(direction) {
+        // 1. Hide current active layout block
+        document.getElementById(pages[currentPageIndex]).classList.remove('active-page');
+        
+        // 2. Adjust target step index pointer 
+        currentPageIndex += direction;
+        
+        // 3. Reveal targeted item block frame
+        document.getElementById(pages[currentPageIndex]).classList.add('active-page');
+        
+        // 4. Update the disabled states of navigation buttons safely
+        document.getElementById('prevBtn').disabled = (currentPageIndex === 0);
+        document.getElementById('nextBtn').disabled = (currentPageIndex === pages.length - 1);
+    }
+</script>
+
 </body>
 </html>

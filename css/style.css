@@ -43,6 +43,7 @@ header {
     /* Colors & Style */
     background-color: #2F4F3E; /* The dark green covers everything */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+
     border-bottom: 1px solid rgba(245, 235, 215, 0.2);
 }
 header img {
@@ -267,26 +268,37 @@ Hero banner is still necessary-->
 
 
 .hero-banner { 
-  background-size: cover;
-  height: 40px;
-  display: flex;
-  align-items: center;   /* Centers text vertically */
-  justify-content: center; /* Centers text horizontally */
-  color: white;
+  position: relative; /* Anchor for absolute overlay text positioning */
+  width: 100%;        /* Spans the full width of its area */
+  overflow: hidden; 
 }
 
 .overlay-text {
   position: absolute; /* Takes the text out of the normal flow */
-  top: 50%;           /* Moves it down 50% from the top */
+  top: 60%;           /* Moves it down 60% from the top */
   left: 50%;          /* Moves it 50% from the left */
-  transform: translate(-50%, -50%); /* Centers it perfectly */
+  transform: translate(-50%, -60%); /* Centers it perfectly */
   
   color: white;       /* Make it readable */
 
-  font-size: 24px;
+  text-align: center;
+  width: 90%;         /* Prevents text from hitting the very edge on mobile */
+  font-size: 4vw;  
+
+  font-size: 26px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Helps against busy backgrounds */
 }
+
+/* Make the image scale fluidly */
+.hero-image {
+  width: 100%;        /* Forces image to stretch to container width */
+  max-width: 100%;    /* Prevent image from blowing up past its native width */
+  height: auto;       /* Maintains perfect original aspect ratio proportions */
+  display: block;     /* Eliminates default inline gaps underneath images */
+}
+
+
 
 footer .socials {
     display: flex;
@@ -316,7 +328,7 @@ footer .socials a:hover img {
 }
 
 
-.breadcrumbs {
+.breadcrumbs{
     padding: 12px 24px;
     font-size: 0.9rem;
     color: #2F4F3E;
@@ -325,6 +337,8 @@ footer .socials a:hover img {
 
 .breadcrumbs a {
     text-decoration: none;
+    font-size: medium;
+    font-weight: 600;
     color: #A67C52; /* Use your accent color */
     margin: 0 5px;
 }
@@ -345,6 +359,12 @@ main {
 .about-header {
     text-align:center;
     margin-bottom: 20px;
+}
+.about-body{
+    width: 80%;
+}
+.about-sections{
+    width: 70%;
 }
 
 .profile-img {
@@ -373,14 +393,14 @@ main {
 /* Tablet: 2 columns */
 @media (min-width: 600px) {
     .card-wrapper {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 2fr);
     }
 }
 
 /* Desktop: 3 columns */
 @media (min-width: 1000px) {
     .card-wrapper {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 2fr);
     }
 }
 
@@ -402,7 +422,7 @@ details {
     border: 1px solid rgba(166,124,82,0.3);
     border-radius: 10px;
     padding: 10px;
-    background: rgba(255,255,255,0.3);
+    background: white;
 
 
 }   
@@ -430,7 +450,7 @@ details[open] p {
   display: grid;
 
   /* Adjust '300px' to change the minimum width of each card */
-  grid-template-columns: repeat(auto-fit, 300px); 
+  grid-template-columns: repeat(auto-fit, 150px); 
   gap: 20px;
   
   /* Centers the grid itself and the items inside it */
@@ -458,10 +478,7 @@ details[open] p {
   object-fit: cover; /* Prevents image distortion */
 }
 
-.card-content {
 
-  padding: 15px;
-}
 
 .globe-wrapper {
   position: relative; /* Essential for positioning the card */
@@ -476,8 +493,119 @@ details[open] p {
     border: 1px solid #ccc;
 }
 
-area {
+
+.content {
+  display: flex;       /* Forces side-by-side layout */
+  align-items: center;  /* Centers image and text vertically. Use 'flex-start' to align to top */
+  gap: 20px;           /* Creates clean spacing between the image and text */
+}
+.content img {
+  width: 350px;        /* Fixed width for consistency */
+  height: auto;       /* Maintains aspect ratio */
+  border-radius: 8px; /* Optional: adds a bit of style */
+}
+.content p {
+  flex: 1;            /* Takes up remaining space */
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333333;   
+}
+
+
+.photo-credit-simple {
+  font-size: 12px;
+  color: #666666;
+  margin-top: 5px;
+  text-align: right; /* Aligns attribution right-flush with image edge */
+}
+
+
+.info-card {
+  position: absolute;
+  display: none;        /* Hidden by default */
+  pointer-events: none; /* Prevents the card itself from breaking the cursor hover state */
+  background: #ffffff;
+  color: #333333;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  z-index: 999;
+}
+
+.info-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #1b4d3e;       /* Deep green header */
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Hide all pages by default */
+.page-content {
+    display: none;
+}
+
+/* Only display the active page wrapper */
+.page-content.active-page {
     display: block;
-    outline: 3px solid #A67C52; /* This shows you exactly where to click */
+}
+
+/* Style the action buttons below the container */
+.page-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.page-controls button {
+    padding: 10px 20px;
+    background-color: #1b4d3e; /* Matches your tea brand theme */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
+
+.page-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Container layout matching your established content style */
+.video-wrapper {
+    position: relative;
+    width: 250px;          /* Matches your photo layout widths */
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;      /* Clips sharp video corners to match border radius */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+/* Forces the video file to fit nicely inside the container box */
+.content-video {
+    width: 100%;
+    height: 400px;         /* Taller vertical aspect ratio for short videos */
+    object-fit: cover;     /* Crops video cleanly to fill the frame without distortion */
+    display: block;
+}
+
+/* Absolute text overlay for video attribution credits */
+.video-credit {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
